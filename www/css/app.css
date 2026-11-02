@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+body, html {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    margin: 0; 
+    padding: 0;
+    height: 100%; 
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+input, textarea, select {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+}
+
+/* Custom Scrollbar & Hide Utilities */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+.page-enter { animation: pageSlideIn 0.2s cubic-bezier(0, 0, 0.2, 1) forwards; }
+@keyframes pageSlideIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Calendar Grid Styling */
+.calendar-day-btn {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.calendar-day-btn:hover {
+    background-color: #14b8a6;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.calendar-day-btn:active {
+    transform: scale(0.92);
+}
+
+/* Dropdown Option Hover Effects (Bebas Flicker & No Layout Shift) */
+.custom-option-item {
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.custom-option-item:hover {
+    background-color: #f0fdfa;
+    border-color: #14b8a6;
+    box-shadow: 0 2px 6px rgba(13, 148, 136, 0.08);
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.22s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@media print {
+    body { background: white !important; overflow: visible !important; color: black !important; }
+    .no-print { display: none !important; }
+    .print-only { display: block !important; }
+}
